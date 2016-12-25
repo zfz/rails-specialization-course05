@@ -1,24 +1,24 @@
 <div ng-if="ctrl.items !== null && ctrl.items.length === 0">
-    <span class="text-danger">Nothing found.</span>
+  <span class="text-danger">Nothing found.</span>
 </div>
 
 <table ng-if="ctrl.items !== null && ctrl.items.length !== 0" class="table table-striped">
-    <tr>
-        <th>Code</th>
-        <th>Name</th>
-        <th></th>
-    </tr>
-    <tr ng-repeat="item in ctrl.items">
-        <td>
-            <span class="text-muted">{{item.short_name}}</span>
-        </td>
-        <td>
-            {{item.name}} <br>
-            <small ng-bind-html="item.description | highlight : ctrl.highlight"></small>
-        </td>
-        <td>
-            <button ng-click="ctrl.onRemove({index: $index});"
-                    class="btn btn-sm btn-default">Don't want this one!</button>
-        </td>
-    </tr>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="item in ctrl.items">
+    <td>
+      <span class="text-muted">{{item.short_name}}</span>
+    </td>
+    <td>
+      {{item.name}} <br>
+      <small ng-bind-html="item.description | highlight : ctrl.highlight"></small>
+    </td>
+    <td>
+      <button ng-click="ctrl.onRemove({index: $index});"
+          class="btn btn-sm btn-default">Don't want this one!</button>
+    </td>
+  </tr>
 </table>

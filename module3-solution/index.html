@@ -2,44 +2,43 @@
 <html ng-app="NarrowItDownApp">
 
 <head>
-    <meta charset="utf-8">
-
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="app.js"></script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Narrow It Down App</h1>
-        <div ng-controller="NarrowItDownController as ctrl">
-            <div class="row">
-                <div class="col-xs-9">
-                    <div class="form-group">
-                        <input ng-model="ctrl.searchTerm" type="text"
-                               class="form-control" placeholder="Enter search term">
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="form-group">
-                        <button ng-click="ctrl.getMatchedMenuItems();"
-                                class="btn btn-block btn-primary">Narrow It Down For Me!</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12" ng-if="ctrl.searching">
-                    <span class="text-info">Searching...</span>
-                </div>
-
-                <div class="col-xs-12">
-                    <found-items items="ctrl.found" on-remove="ctrl.removeMatchedMenuItem(index)"
-                                 highlight="ctrl.searchTerm"></found-items>
-                </div>
-            </div>
+  <div class="container">
+    <h1>Narrow It Down App</h1>
+    <div ng-controller="NarrowItDownController as ctrl">
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="form-group">
+            <input ng-model="ctrl.searchTerm" type="text"
+                 class="form-control" placeholder="Enter search term">
+          </div>
         </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <button ng-click="ctrl.getMatchedMenuItems();"
+                class="btn btn-primary">Narrow It Down For Me!</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" ng-if="ctrl.searching">
+          <span class="text-info">Searching...</span>
+        </div>
+
+        <div class="col-xs-12">
+          <found-items items="ctrl.found" on-remove="ctrl.removeMatchedMenuItem(index)"
+                 highlight="ctrl.searchTerm"></found-items>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>
