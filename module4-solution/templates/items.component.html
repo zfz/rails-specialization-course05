@@ -1,0 +1,7 @@
+<table>
+    <tr ng-repeat="item in $ctrl.items">
+        <td class="item item-index">{{:: $index}}.</td>
+        <td class="item item-badge"><span class="text-muted">[{{:: item.short_name}}]</span></td>
+        <td class="item item-name">{{:: item.name}}</td>
+    </tr>
+</table>

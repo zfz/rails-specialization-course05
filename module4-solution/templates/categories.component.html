@@ -1,0 +1,9 @@
+<table>
+    <tr ng-repeat="item in $ctrl.categories">
+        <td class="item item-index">{{:: $index}}.</td>
+        <td class="item item-badge"><span class="text-muted">[{{:: item.short_name}}]</span></td>
+        <td class="item item-name">
+            <a ui-sref="categories.items({categoryShortName: item.short_name})">{{:: item.name}}</a>
+        </td>
+    </tr>
+</table>
