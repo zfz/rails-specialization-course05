@@ -1,0 +1,110 @@
+<div class="container">
+  <h2>Sign Up here to subscribe for Newsletter</h2>
+  <fieldset>
+    <form name='regForm' novalidate>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <input
+             type="text"
+             name="firstName"
+             placeholder="First Name"
+             class="form-control"
+             ng-model="signUpCtrl.user.firstName"
+             required/>
+          <span
+             ng-if="regForm.firstName.$error.required && regForm.firstName.$touched && regForm.firstName.$invalid">
+            First Name is required
+          </span>
+        </div>
+        <div class="form-group col-md-6">
+          <input
+             type="text"
+             name="lastName"
+             placeholder="Last Name"
+             class="form-control"
+             ng-model="signUpCtrl.user.lastName"
+             required/>
+          <span
+             ng-if="regForm.lastName.$error.required && regForm.lastName.$touched && regForm.lastName.$invalid">
+            Last Name is required
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <input
+             type="email"
+             name="email"
+             placeholder="Valid Email Format: handle@domain"
+             class="form-control"
+             ng-model="signUpCtrl.user.email"
+             required/>
+          <span
+             ng-if="regForm.email.$error.required && regForm.email.$touched && regForm.email.$invalid">
+            Must be a valid email address: handle@domain format
+          </span>
+        </div>
+        <div class="form-group col-md-6">
+          <input
+             type="text"
+             name="phone"
+             placeholder="Phone ###-###-####"
+             class="form-control"
+             ng-model="signUpCtrl.user.phone"
+             pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span
+             ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <input
+             type="text"
+             name="favoriteDish"
+             placeholder="Specify the menu number for your favorite dish"
+             class="form-control"
+             ng-model="signUpCtrl.user.favoriteDish"
+             ng-blur="signUpCtrl.checkMenuNumber();"
+             required>
+          <span
+             ng-if="regForm.favoriteDish.$error.required && regForm.favoriteDish.$touched">
+            You need to specify Menu number for your favourite dish
+          </span>
+        </div>
+        <div class="form-group col-md-6">
+          <button
+             ng-disabled="regForm.$invalid || !signUpCtrl.menuCheckFlag"
+             class="btn btn-default"
+             ng-click="signUpCtrl.submit()">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </fieldset>
+  <div
+             class="alert alert-danger">
+    Bonus point is added. Please click outside favourite dish field to trigger it
+  </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Result Message</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{signUpCtrl.resultMessage}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

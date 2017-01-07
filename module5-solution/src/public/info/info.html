@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="alert alert-info" ng-if="myInfoCtrl.errorMessage">{{myInfoCtrl.errorMessage}}
+    <a ui-sref="public.sign-up">
+      <kbd> Sign Up Now!</kbd></a>
+  </div>
+  <div ng-if="!myInfoCtrl.errorMessage">
+    <h2>Registered Information</h2>
+    <div class="alert alert-warning col-md-12">
+      <span>First Name : {{myInfoCtrl.info.firstName}}</span><br/><hr>
+      <span>Last Name : {{myInfoCtrl.info.lastName}}</span><br/><hr>
+      <span>Email ID : {{myInfoCtrl.info.email}}</span><br/><hr>
+      <span ng-if="myInfoCtrl.info.phone">Contact No : {{myInfoCtrl.info.phone}}</span>
+      <span ng-if="!myInfoCtrl.info.phone">You have not shared your contact detail.</span><br/>
+    </div>
+    <p>Your preferred  menu item is shown below:</p><br/>
+    <div class="menu-item-tile col-md-6">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="menu-item-photo">
+            <div>{{myInfoCtrl.info.menu_item.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.info.menu_item.short_name}}.jpg" alt="{{myInfoCtrl.info.menu_item.name}}">
+          </div>
+          <div class="menu-item-price">{{myInfoCtrl.info.menu_item.price_small | currency}}<span> {{myInfoCtrl.info.menu_item.small_portion_name}}</span> {{myInfoCtrl.info.menu_item.price_large | currency}} <span>{{myInfoCtrl.info.menu_item.large_portion_name}}</span></div>
+        </div>
+        <div class="menu-item-description col-sm-7">
+          <h3 class="menu-item-title">{{myInfoCtrl.info.menu_item.name}}</h3>
+          <p class="menu-item-details">{{myInfoCtrl.info.menu_item.description}}</p>
+        </div>
+      </div>
+      <hr class="visible-xs">
+    </div>
+  </div>
+</div>
